@@ -1,0 +1,127 @@
+
+
+<body> 
+       
+<h1> Listing </h1>
+
+
+<form [formGroup]="detailsform" style="margin:3rem" class="col-md-12"> 
+  <div class="row">
+    <div class="col-md-3">
+      Address :
+    </div>
+    <div class="col-md-9">
+      <input type="text" formControlName="Address" name="address" required>
+    </div>
+    <div class="col-md-3">
+      Price :
+    </div>
+    <div class="col-md-9">
+      <input type="text" formControlName="Price" name="price">
+    </div>
+    <div class="col-md-3">
+      Description :
+    </div>
+    <div class="col-md-9">
+      <input type="text" formControlName="Description" name="description">
+    </div>
+    <div class="col-md-3">
+      Beds :
+    </div>
+    <div class="col-md-9">
+      <input type="text" formControlName="Beds" name="beds">
+    </div>
+    <div class="col-md-3">
+      Propertytype:
+    </div>
+    <div class="col-md-9">
+      <input type="text" formControlName="Propertytype" name="property type">
+    </div>
+    <div class="col-md-3">
+      Baths:
+    </div>
+    <div class="col-md-9">
+      <input type="text" formControlName="Baths" name="baths">
+    </div>
+    <div class="col-md-3">
+      Sqft:
+    </div>
+    <div class="col-md-9">
+      <input type="text" formControlName="Sqft" name="sqft">
+    </div>
+     <input class="btn btn-primary" type="button" (click)="addingitem()" value="Add"> 
+    <!-- <input type="button" (click)="addingitem()" value="Add"> -->
+  
+  </div>
+</form>
+
+<!-- <table style="border:1px solid black"> -->
+  <table class="table table-bordered table-dark">
+  <thead>
+    <tr>
+      <th>Address </th>
+      <th>Price</th>
+      <th>Description</th>
+      <th>Beds</th>
+      <th>Propertytype</th>
+      <th>Baths</th>
+      <th>Sqft</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <!-- elements in array  -->
+    <!-- idx index means we are saying that addr0,addr1-->
+     <tr *ngFor="let item of items; let idx = index">
+      <td>
+        <!-- js element {}-->
+        <!-- concating  address and index of elements -->
+        <!-- isShown :: textbox is hidden and inline means the box in the same width and it hits edit    -->
+        <input type="text" id='{{"addr"+idx}}' value={{item.Address}} class="address" [ngStyle]="{'display': item.isShown}"> 
+        <label [ngStyle]="{'display': opposite(item.isShown)}">{{ item.Address}}</label>
+      
+      </td> 
+      <td>
+        <!-- {{ item.Price}}</td> -->
+        <input type="text" id='{{"pri"+idx}}' value={{item.Price}} class="price" [ngStyle]="{'display': item.isShown}"> 
+        <label [ngStyle]="{'display': opposite(item.isShown)}">{{ item.Price}}</label>
+      </td>
+      <!-- <td>{{ item.Description}}  </td> -->
+      <td>
+        <input type="text" id='{{"desc"+idx}}' value={{item.Description}} class="description" [ngStyle]="{'display': item.isShown}"> 
+        <label [ngStyle]="{'display': opposite(item.isShown)}">{{ item.Description}}</label>
+      </td>
+      <!-- <td>{{ item.Beds}}  </td> -->
+      <td>
+        <input type="text" id='{{"bed"+idx}}' value={{item.Beds}} class="beds" [ngStyle]="{'display': item.isShown}"> 
+        <label [ngStyle]="{'display': opposite(item.isShown)}">{{ item.Beds}}</label>
+      </td>
+      <!-- <td>{{ item.Propertytype}} </td> -->
+      <td>
+        <input type="text" id='{{"prop"+idx}}' value={{item.Propertytype}} class="propertytype" [ngStyle]="{'display': item.isShown}"> 
+        <label [ngStyle]="{'display': opposite(item.isShown)}">{{ item.Propertytype}}</label>
+      </td>
+      <!-- <td>{{ item.Baths}}  </td> -->
+      <td>
+        <input type="text" id='{{"bat"+idx}}' value={{item.Baths}} class="address" [ngStyle]="{'display': item.isShown}"> 
+        <label [ngStyle]="{'display': opposite(item.isShown)}">{{ item.Baths}}</label>
+      </td>
+      <!-- <td>{{ item.Sqft}} </td> -->
+      <td>
+        <input type="text" id='{{"sqft"+idx}}' value={{item.Sqft}} class="sqft" [ngStyle]="{'display': item.isShown}"> 
+        <label [ngStyle]="{'display': opposite(item.isShown)}">{{ item.Sqft}}</label>
+      </td>
+      <td> 
+        <button type="button" class="btn btn-danger" (click)="deleting(item)"> Delete </button> 
+        <button type="button" class="btn btn-info" (click)="hide(item, idx)"> Edit </button>
+        <!-- <button type="button" class="btn" (click)="editing(item)"> update</button> -->
+        <a (click)="editing(item)">Edit</a>
+
+      </td>
+      <!-- <a  href="edit"> edit </a> -->
+      <!-- <button type="button" class="btn btn-info" onClick="editing()" window.location='/edit'"> Edit </button> -->
+      
+    </tr>
+  </tbody>
+</table>
+</body>
