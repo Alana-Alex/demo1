@@ -32,7 +32,6 @@ export class ListingComponent implements OnInit {
   }
 
   addingitem() {
-    // debugger;
     let listing: any = new Object();
     listing.Address = this.detailsform.value.Address;
     listing.Price = this.detailsform.value.Price;
@@ -48,7 +47,6 @@ export class ListingComponent implements OnInit {
 
 
   deleting(item) {
-    // debugger;
     var i;
     var Sure = confirm("Are you sure");
     if (Sure == true) {
