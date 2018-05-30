@@ -5,6 +5,9 @@ body{
     background-size:cover;
     
 }
+body{
+    background: blue;
+}
 /* .address{
     display: none;
 } */

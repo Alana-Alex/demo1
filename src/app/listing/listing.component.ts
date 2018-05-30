@@ -1,13 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 // import { Router } from '@angular/router';
+
+import { ListingService } from './../listing.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 @Component({
   selector: 'app-listing',
   templateUrl: './listing.component.html',
-  styleUrls: ['./listing.component.css']
+  styleUrls: ['./listing.component.css'],
+  providers:[ListingService]
 })
 export class ListingComponent implements OnInit {
+  
   listing: any;
   tabledata:any;
   message: string;
@@ -17,7 +21,7 @@ export class ListingComponent implements OnInit {
   // isShown:string="none";
   
   constructor(private router: Router, 
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute , private listingService: ListingService) {
 
     this.items = new Array<any>();
     this.detailsform = new FormGroup({
@@ -32,8 +36,9 @@ export class ListingComponent implements OnInit {
   }
 
   addingitem() {
-    // debugger;
+   
     let listing: any = new Object();
+    
     listing.Address = this.detailsform.value.Address;
     listing.Price = this.detailsform.value.Price;
     listing.Description = this.detailsform.value.Description;
@@ -44,15 +49,24 @@ export class ListingComponent implements OnInit {
     listing.isShown = "none";
     this.items.push(listing);
     this.detailsform.reset();
+  
   }
 
-
+   ngOnInit(){
+    
+  }
+//pass the parameter
   deleting(item) {
     // debugger;
     var i;
     var Sure = confirm("Are you sure");
     if (Sure == true) {
+      //its one object  
+      //indexOf ::index of passed item
       i = this.items.indexOf(item);
+      //splice have 2 param:: which index and how many to delete
+      //2nd parameter is known.
+      //when we do splice ,the whole object is deleted
       this.items.splice(i, 1)
     }
   }
@@ -86,40 +100,25 @@ export class ListingComponent implements OnInit {
     
 
    
-  // editing(item) {
+  editing(item) {
   
-  //   var edited = confirm("are you sure you wanna go  to the edit page");
-  //   if (edited == true) {
-  
-  //     this.router.navigate(['\edit'])
-// }}
+    var edited = confirm("are you sure you wanna go  to the edit page");
+    if (edited == true) {
+      //item stored in variable of service 
+     this.listingService.newediting=item;
+      this.router.navigate(['\edit'])
 
-  //   editing(item): void {
-  //  this.router.navigate(['/edit', this.listing.id]);
-
-  //  }`
-
-  //    }
-
-  
-  onEditDetail(){
-    this.router.navigate(['/user/user-list/edit', this.item]);
+      debugger;
+    }
   }
 
+
+ 
 
 }
 
 
-  ngOnInit() {
 
-      this.route.params
-      .subscribe(
-        (params: Params) => {
-          this.id = +params['id'];
-          this.user = this.userService.getUser(this.id);
-          }
-        )
-  }
 
 
 
