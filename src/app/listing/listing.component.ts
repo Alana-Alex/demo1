@@ -36,7 +36,10 @@ export class ListingComponent implements OnInit {
   }
 
   addingitem() {
+<<<<<<< HEAD
    
+=======
+>>>>>>> bea6e407894bac046492cfcc9799d26f2598fc51
     let listing: any = new Object();
     
     listing.Address = this.detailsform.value.Address;
@@ -57,7 +60,6 @@ export class ListingComponent implements OnInit {
   }
 //pass the parameter
   deleting(item) {
-    // debugger;
     var i;
     var Sure = confirm("Are you sure");
     if (Sure == true) {
