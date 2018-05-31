@@ -1,0 +1,49 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+
+        <div class="col-md-4 text-center bordering">
+
+            <h3>Login</h3>
+
+            <form [formGroup] ="loginform" (ngSubmit)="new()">
+                
+                <div class="form-group">
+                    <input class="form-control" type="text" formControlName ="username" placeholder="Username">
+                <span style="color:red" [hidden]="!loginform.controls.username.hasError('minlength')">minimum of 4 characters required</span> 
+                </div>
+
+                <div class="form-group">
+                    <input class="form-control" type="password" formControlName="password" placeholder="Password">
+                     <span style="color:red" [hidden]="!loginform.controls.password.hasError('minlength')">minimum of 5 characters required</span> 
+                </div>
+        
+                <div class="form-group">
+                    <input class="form-control" type="text" formControlName="loginas" placeholder="Login As" >
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-primary"  [disabled]="!loginform.valid">Login</button>
+                </div>
+
+                 <span style="color:red" *ngIf="!loginform.controls.username.valid && loginform.controls.username.dirty">  Some error occurred (required)  </span>
+                 <span style="color:red" *ngIf="!loginform.controls.password.valid && loginform.controls.password.dirty">  error occurred  </span>
+                 <br>
+                 
+
+            </form>
+         </div> 
+
+        <div class="col-md-4">
+        </div>
+
+    </div>
+<!-- </div> -->
+    <div class="text-center">
+        <a class="text-success" href="#" onclick="return confirm('Click on another OK to continue.');"> EULA. </a>
+        <a class="text-success" href="#" onclick="return confirm('privacy alert');"> Privacy. </a>
+        <a class="text-success" href="#" onclick="return confirm('third party link');">Third Party Software. </a>
+        <p> Copyright 2017 Company
+         <br> All Rights Reserved </p>
+    </div> 
+        </div>

@@ -1,0 +1,19 @@
+.row{
+    width: 100%;
+}
+
+
+.btn{
+	background-color:blue;
+	color:black;
+	font-weight:bold;
+	
+} 
+
+.container-fluid{
+	background-color:white;
+	padding-top:30px;
+	padding-bottom:30px;
+	padding-right:30px;
+	padding-left:30px;
+}

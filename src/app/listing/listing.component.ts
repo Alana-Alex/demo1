@@ -8,20 +8,20 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
   selector: 'app-listing',
   templateUrl: './listing.component.html',
   styleUrls: ['./listing.component.css'],
-  providers:[ListingService]
+  providers: [ListingService]
 })
 export class ListingComponent implements OnInit {
-  
+
   listing: any;
-  tabledata:any;
+  tabledata: any;
   message: string;
   item: any;
   items: Array<any>;
   detailsform: FormGroup;
   // isShown:string="none";
-  
-  constructor(private router: Router, 
-              private route: ActivatedRoute , private listingService: ListingService) {
+
+  constructor(private router: Router,
+    private route: ActivatedRoute, private listingService: ListingService) {
 
     this.items = new Array<any>();
     this.detailsform = new FormGroup({
@@ -36,12 +36,8 @@ export class ListingComponent implements OnInit {
   }
 
   addingitem() {
-<<<<<<< HEAD
-   
-=======
->>>>>>> bea6e407894bac046492cfcc9799d26f2598fc51
     let listing: any = new Object();
-    
+
     listing.Address = this.detailsform.value.Address;
     listing.Price = this.detailsform.value.Price;
     listing.Description = this.detailsform.value.Description;
@@ -52,13 +48,13 @@ export class ListingComponent implements OnInit {
     listing.isShown = "none";
     this.items.push(listing);
     this.detailsform.reset();
-  
+
   }
 
-   ngOnInit(){
-    
+  ngOnInit() {
+
   }
-//pass the parameter
+  //pass the parameter
   deleting(item) {
     var i;
     var Sure = confirm("Are you sure");
@@ -73,41 +69,40 @@ export class ListingComponent implements OnInit {
     }
   }
 
-  hide(obj, idx)
-  {
-    if(obj.isShown=="none"){
-      obj.isShown="inline"
+  hide(obj, idx) {
+    if (obj.isShown == "none") {
+      obj.isShown = "inline"
     }
-    else{
-      obj.Address = (document.getElementById("addr"+idx) as HTMLInputElement).value;
-      obj.Price = (document.getElementById("pri"+idx) as HTMLInputElement).value;
-      obj.Description = (document.getElementById("desc"+idx) as HTMLInputElement).value;
-      obj.Beds = (document.getElementById("bed"+idx) as HTMLInputElement).value;
-      obj.Propertytype = (document.getElementById("prop"+idx) as HTMLInputElement).value;
-      obj.Baths = (document.getElementById("bat"+idx) as HTMLInputElement).value;
-      obj.Sqft = (document.getElementById("sqft"+idx) as HTMLInputElement).value;
-      obj.isShown="none";
+    else {
+      obj.Address = (document.getElementById("addr" + idx) as HTMLInputElement).value;
+      obj.Price = (document.getElementById("pri" + idx) as HTMLInputElement).value;
+      obj.Description = (document.getElementById("desc" + idx) as HTMLInputElement).value;
+      obj.Beds = (document.getElementById("bed" + idx) as HTMLInputElement).value;
+      obj.Propertytype = (document.getElementById("prop" + idx) as HTMLInputElement).value;
+      obj.Baths = (document.getElementById("bat" + idx) as HTMLInputElement).value;
+      obj.Sqft = (document.getElementById("sqft" + idx) as HTMLInputElement).value;
+      obj.isShown = "none";
     }
   }
 
-  opposite(isShown){
-    if(isShown=="none")
+  opposite(isShown) {
+    if (isShown == "none")
       return "inline"
     else
       return "none"
   }
 
 
- 
-    
 
-   
+
+
+
   editing(item) {
-  
+
     var edited = confirm("are you sure you wanna go  to the edit page");
     if (edited == true) {
       //item stored in variable of service 
-     this.listingService.newediting=item;
+      this.listingService.newediting = item;
       this.router.navigate(['\edit'])
 
       debugger;
@@ -115,7 +110,7 @@ export class ListingComponent implements OnInit {
   }
 
 
- 
+
 
 }
 

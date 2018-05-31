@@ -2,7 +2,7 @@
 
 <body> 
        
-<h1> Listing </h1>
+<h1 class="h1a"> Listing </h1>
 
 
 <form [formGroup]="detailsform" style="margin:3rem" class="col-md-12"> 
@@ -114,7 +114,7 @@
       <td> 
         <button type="button" class="btn btn-danger" (click)="deleting(item)"> Delete </button> 
         <button type="button" class="btn btn-info" (click)="hide(item, idx)"> Edit </button>
-         <button type="button" class="btn" (click)="editing(item)"> Edit1</button> 
+         <button type="button" class="btn btn-primary" (click)="editing(item)"> Edit1</button> 
         <!-- <a (click)="editing(item)">Edit</a> -->
 
       </td>
