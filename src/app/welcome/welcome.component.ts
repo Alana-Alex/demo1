@@ -16,14 +16,16 @@ export class WelcomeComponent implements OnInit {
   
   }
 
-  ngOnInit() {
-  }
 
-
-  no() { 
+  nogo() { 
     this.router.navigate(['\register']);
    
   }
+
+
+  ngOnInit() {
+  }
+
 
   
 }

@@ -1,49 +1,45 @@
-<div class="container-fluid">
+ <div class="container-fluid">
     <div class="row">
         <div class="col-md-4">
         </div>
 
-        <div class="col-md-4 text-center bordering">
+        <div class="col-md-4 text-center  bg-success">
 
-            <h3>Login</h3>
+            <h3 class="h3i">Login</h3>
 
-            <form [formGroup] ="loginform" (ngSubmit)="new()">
+            <form class="newform" [formGroup] ="loginform" (ngSubmit)="new()">
                 
                 <div class="form-group">
-                    <input class="form-control" type="text" formControlName ="username" placeholder="Username">
-                <span style="color:red" [hidden]="!loginform.controls.username.hasError('minlength')">minimum of 4 characters required</span> 
+ <input class="form-control" type="text" formControlName ="username" placeholder="Username">
+<span style="color:red" *ngIf="!loginform.controls.username.valid && loginform.controls.username.dirty && !loginform.controls.username.hasError('minlength')" > minimum of 4 characters required and contain only alphabets</span> 
                 </div>
 
                 <div class="form-group">
                     <input class="form-control" type="password" formControlName="password" placeholder="Password">
-                     <span style="color:red" [hidden]="!loginform.controls.password.hasError('minlength')">minimum of 5 characters required</span> 
+                     <span style="color:red" *ngIf=" !loginform.controls.password.valid && loginform.controls.password.dirty && !loginform.controls.password.hasError('pattern')"> should meet the pattern
+                         contain atleast one character , numbers from 0 to 1  </span> 
                 </div>
         
                 <div class="form-group">
                     <input class="form-control" type="text" formControlName="loginas" placeholder="Login As" >
                 </div>
                 <div class="form-group">
-                    <button type="button" class="btn btn-primary"  [disabled]="!loginform.valid">Login</button>
+                    <button type="submit" class="btn btn-primary"  [disabled]="!loginform.valid"> Login </button>
                 </div>
-
-                 <span style="color:red" *ngIf="!loginform.controls.username.valid && loginform.controls.username.dirty">  Some error occurred (required)  </span>
-                 <span style="color:red" *ngIf="!loginform.controls.password.valid && loginform.controls.password.dirty">  error occurred  </span>
-                 <br>
-                 
-
             </form>
          </div> 
 
         <div class="col-md-4">
         </div>
 
-    </div>
+    </div> 
 <!-- </div> -->
-    <div class="text-center">
+     <div class="text-center">
         <a class="text-success" href="#" onclick="return confirm('Click on another OK to continue.');"> EULA. </a>
         <a class="text-success" href="#" onclick="return confirm('privacy alert');"> Privacy. </a>
         <a class="text-success" href="#" onclick="return confirm('third party link');">Third Party Software. </a>
         <p> Copyright 2017 Company
          <br> All Rights Reserved </p>
     </div> 
-        </div>
+        </div> 
+

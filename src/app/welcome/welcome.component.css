@@ -1,10 +1,11 @@
 .wel{
     text-align: center;
-    color: green;
+    color: darkmagenta;
     font-size: 40px;
 }
 .c1{
     text-align:center;
     font-size: 30px;
-    color: black
+    color: black;
+    font : bold;
 }
