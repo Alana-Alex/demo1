@@ -1,4 +1,14 @@
 .h1d{
 text-align: center;
 color: red;
+}   
+
+.row{
+	width: 100%;
+
+}
+
+body{
+	
+	background-size:cover;
 }

@@ -70,55 +70,42 @@
   <tbody>
     <!-- elements in array  -->
     <!-- idx index means we are saying that addr0,addr1-->
-     <tr *ngFor="let item of items; let idx = index">
+     <!-- <tr *ngFor="let item of items; let idx = index"> -->
+       <tr *ngFor="let item of items"> 
       <td>
-        <!-- js element {}-->
-        <!-- concating  address and index of elements -->
-        <!-- isShown :: textbox is hidden and inline means the box in the same width and it hits edit    -->
-        <input type="text" id='{{"addr"+idx}}' value={{item.Address}} class="address" [ngStyle]="{'display': item.isShown}"> 
-        <label [ngStyle]="{'display': opposite(item.isShown)}">{{ item.Address}}</label>
-      
+        <input *ngIf="item.isEdit" [(ngModel)]="item.Address" type="text" style="width:100px"> 
+        <label *ngIf="!item.isEdit">{{ item.Address}}</label>
       </td> 
       <td>
-        <!-- {{ item.Price}}</td> -->
-        <input type="text" id='{{"pri"+idx}}' value={{item.Price}} class="price" [ngStyle]="{'display': item.isShown}"> 
-        <label [ngStyle]="{'display': opposite(item.isShown)}">{{ item.Price}}</label>
+        <input *ngIf="item.isEdit" [(ngModel)]="item.Price" type="text" class="price"  style="width:100px"> 
+        <label *ngIf="!item.isEdit">{{ item.Price}}</label>
       </td>
-      <!-- <td>{{ item.Description}}  </td> -->
       <td>
-        <input type="text" id='{{"desc"+idx}}' value={{item.Description}} class="description" [ngStyle]="{'display': item.isShown}"> 
-        <label [ngStyle]="{'display': opposite(item.isShown)}">{{ item.Description}}</label>
+        <input *ngIf="item.isEdit" [(ngModel)]="item.Description" type="text" class="description"  style="width:100px"> 
+        <label *ngIf="!item.isEdit">{{ item.Description}}</label>
       </td>
-      <!-- <td>{{ item.Beds}}  </td> -->
       <td>
-        <input type="text" id='{{"bed"+idx}}' value={{item.Beds}} class="beds" [ngStyle]="{'display': item.isShown}"> 
-        <label [ngStyle]="{'display': opposite(item.isShown)}">{{ item.Beds}}</label>
+        <input *ngIf="item.isEdit" [(ngModel)]="item.Beds" type="text" class="beds"  style="width:100px"> 
+        <label *ngIf="!item.isEdit">{{ item.Beds}}</label>
       </td>
-      <!-- <td>{{ item.Propertytype}} </td> -->
       <td>
-        <input type="text" id='{{"prop"+idx}}' value={{item.Propertytype}} class="propertytype" [ngStyle]="{'display': item.isShown}"> 
-        <label [ngStyle]="{'display': opposite(item.isShown)}">{{ item.Propertytype}}</label>
+        <input *ngIf="item.isEdit" [(ngModel)]="item.Propertytype" type="text" class="propertytype"  style="width:100px"> 
+        <label *ngIf="!item.isEdit">{{ item.Propertytype}}</label>
       </td>
-      <!-- <td>{{ item.Baths}}  </td> -->
       <td>
-        <input type="text" id='{{"bat"+idx}}' value={{item.Baths}} class="address" [ngStyle]="{'display': item.isShown}"> 
-        <label [ngStyle]="{'display': opposite(item.isShown)}">{{ item.Baths}}</label>
+        <input *ngIf="item.isEdit" [(ngModel)]="item.Baths" type="text" class="address"  style="width:100px"> 
+        <label *ngIf="!item.isEdit">{{ item.Baths}}</label>
       </td>
-      <!-- <td>{{ item.Sqft}} </td> -->
       <td>
-        <input type="text" id='{{"sqft"+idx}}' value={{item.Sqft}} class="sqft" [ngStyle]="{'display': item.isShown}"> 
-        <label [ngStyle]="{'display': opposite(item.isShown)}">{{ item.Sqft}}</label>
+        <input *ngIf="item.isEdit" [(ngModel)]="item.Sqft" type="text" class="sqft"  style="width:100px"> 
+        <label *ngIf="!item.isEdit">{{ item.Sqft}}</label>
       </td>
       <td> 
         <button type="button" class="btn btn-danger" (click)="deleting(item)"> Delete </button> 
-        <button type="button" class="btn btn-info" (click)="hide(item, idx)"> Edit </button>
+        <!-- <button type="button" class="btn btn-info" (click)="hide(item, idx)"> Edit </button> -->
+        <button type="button" class="btn btn-info" (click)="edit(item)">{{ (item.isEdit==false) ? "Edit" : "Update" }}</button>
          <button type="button" class="btn btn-primary" (click)="editing(item)"> Edit1</button> 
-        <!-- <a (click)="editing(item)">Edit</a> -->
-
       </td>
-      <!-- <a  href="edit"> edit </a> -->
-      <!-- <button type="button" class="btn btn-info" onClick="editing()" window.location='/edit'"> Edit </button> -->
-      
     </tr>
   </tbody>
 </table>

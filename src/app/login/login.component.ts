@@ -28,13 +28,18 @@ new() {
     this.router.navigate(['\listing']);     
      this.loginform.reset();
   }
-else{
-  this.message = "invalid login";
 
-}
 }   
 ngOnInit() {
   }
 
 
 }
+// validation(){
+//   if (username=="alana" && password=="alana"){
+//     this.message="successful"
+//   }
+//   else{
+//     invalid user;
+//   }
+// }

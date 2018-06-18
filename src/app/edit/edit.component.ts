@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ListingService } from './../listing.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormGroup, FormControl, NgModel } from '@angular/forms';
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
@@ -9,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class EditComponent implements OnInit {
 
   test:any;
-  
+  loginform:any;
 // calling
 //dependency injection
 //singleton:: object created only once :: only one instance
@@ -18,7 +19,15 @@ export class EditComponent implements OnInit {
 // when object created in class
   constructor(private router: Router , private listingService: ListingService, private route: ActivatedRoute) {
 
-
+this.loginform = new FormGroup({
+      'Address': new FormControl(''),
+      'Price': new FormControl(''),
+      'Description': new FormControl(''),
+      'Beds': new FormControl(''),
+      'Propertytype': new FormControl(''),
+      'Baths': new FormControl(''),
+      'Sqft': new FormControl(''),
+    });
    
    
    

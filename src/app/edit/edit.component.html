@@ -1,20 +1,35 @@
-<!-- <div class="row">
-  <div class="col-md-4">
-  </div>
-  <div class="col-md-4"> -->
-    <h1 class="h1d" > Edit the Details </h1>
-    <!-- <table border=1px solid blue>
-      <tr>
-      <td>Address </th>
-      <td>Price</th>
-      <td>Description</td>
-      <td>Beds</td>
-      <td>Propertytype</td>
-      <td>Baths</td>
-      <td>Sqft</td>
-      </tr>
-    </table>
-  </div>
-  <div class="col-md-4">
-  </div>
-</div> -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+
+        <div class="col-md-4 text-center">
+
+            <h3 class="h3i">Edit</h3>
+            <form class="newform"  [formGroup]="loginform" (ngSubmit)="new()" >
+<!-- class="form-horizontal" -->
+                
+                    Address:
+                    <input class="form-control" type="text" formControlName="Address" [(ngModel)]="test.Address">
+                    price:
+                    <input class="form-control"  type="price" formControlName="price" [(ngModel)]="test.price">
+                    Description:
+                    <input class="form-control" type="text" formControlName=" Description" [(ngModel)]="test.Description">
+                    Beds:
+                    <input class="form-control" type="text" formControlName="Beds" [(ngModel)]="test.Beds">
+                    Propertytype:
+                    <input class="form-control" type="text" formControlName="Propertytype" [(ngModel)]="test.Propertytype">
+                    Baths:
+                    <input class="form-control" type="text" formControlName=" Baths" [(ngModel)]="test.Baths">
+                
+                    Sqft:
+                    <input class="form-control" type="text" formControlName=" Sqft" [(ngModel)]="test.Sqft">
+         
+                <button type="button" class="btn btn-warning"> Update</button>
+            </form>
+        </div>
+
+        <div class="col-md-4">
+        </div>
+
+    </div>

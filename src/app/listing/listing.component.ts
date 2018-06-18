@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, NgModel } from '@angular/forms';
 // import { Router } from '@angular/router';
 
 import { ListingService } from './../listing.service';
@@ -8,7 +8,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
   selector: 'app-listing',
   templateUrl: './listing.component.html',
   styleUrls: ['./listing.component.css'],
-  providers: [ListingService]
+  // providers: [ListingService]
 })
 export class ListingComponent implements OnInit {
 
@@ -46,6 +46,7 @@ export class ListingComponent implements OnInit {
     listing.Baths = this.detailsform.value.Baths;
     listing.Sqft = this.detailsform.value.Sqft;
     listing.isShown = "none";
+    listing.isEdit = false;
     this.items.push(listing);
     this.detailsform.reset();
 
@@ -67,6 +68,17 @@ export class ListingComponent implements OnInit {
       //when we do splice ,the whole object is deleted
       this.items.splice(i, 1)
     }
+  }
+
+  edit(item){
+    if(item.isEdit){
+
+    }else{
+      for(let i in this.items){
+        this.items[i].isEdit = false;
+      }
+    }
+    item.isEdit = !item.isEdit;
   }
 
   hide(obj, idx) {

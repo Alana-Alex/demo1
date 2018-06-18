@@ -3,7 +3,7 @@
         <div class="col-md-4">
         </div>
 
-        <div class="col-md-4 text-center  bg-success">
+        <div class="col-md-4 text-center bg-success">
 
             <h3 class="h3i">Login</h3>
 
@@ -17,7 +17,7 @@
                 <div class="form-group">
                     <input class="form-control" type="password" formControlName="password" placeholder="Password">
                      <span style="color:red" *ngIf=" !loginform.controls.password.valid && loginform.controls.password.dirty && !loginform.controls.password.hasError('pattern')"> should meet the pattern
-                         contain atleast one character , numbers from 0 to 1  </span> 
+                         contain atleast one character and numbers  </span> 
                 </div>
         
                 <div class="form-group">

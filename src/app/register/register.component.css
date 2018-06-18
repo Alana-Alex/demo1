@@ -1,4 +1,4 @@
-/* .bg{
+ /* .bg{
     background:"imgq1.jpg";
     background-repeat: no-repeat;
     width: 100%;
@@ -11,4 +11,25 @@
     margin-top: 20vh;
     box-shadow: -1px 4px 26px 11px rgba(0,0,0,0,75);
 
+}  */
+
+.container-fluid{
+	background-color:white;
+	padding-top:30px;
+	padding-bottom:30px;
+	padding-right:30px;
+	padding-left:30px;
+} 
+
+
+/* .registerform{
+	
+     padding:30px 30px;
+	 margin-top: 5vh;
+	
 } */
+.h13{
+    font-size:30px;
+     color:red; 
+     font-family:cursive;
+}

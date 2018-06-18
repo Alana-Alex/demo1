@@ -18,7 +18,7 @@ export class WelcomeComponent implements OnInit {
 
 
   nogo() { 
-    this.router.navigate(['\register']);
+    this.router.navigate(['register']);
    debugger;
   }
 
